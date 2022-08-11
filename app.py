@@ -3,8 +3,14 @@ import pandas as pd
 import numpy as np
 
 st.title('전국 대학 기숙사현황')
+df = pd.read_csv('기숙사수용현황eda.csv')
+
 
 with st.sidebar:
+    option = st.selectbox(
+     '지역선택',
+     df['지역'].unique())
+
     univ = st.text_input('대학명입력', '부산대학교')
     st.write('입력대학 : ', univ)
 
@@ -15,7 +21,9 @@ with st.sidebar:
     st.write('유형 : ' , add_radio)
 
 
-df = pd.read_csv('기숙사수용현황eda.csv')
+if option != '' :
+    df = df[df['지역'] == option]
+
 if univ != '' :
     df = df[df['학교'].str.count(univ) > 0]
 
