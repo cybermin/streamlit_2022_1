@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('전국 대학 기숙사현황')
+st.title('전국 대학 기숙사현황분석')
 df = pd.read_csv('기숙사수용현황eda.csv')
 
 
