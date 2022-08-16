@@ -11,7 +11,7 @@ with st.sidebar:
      '지역선택',
      df['지역'].unique())
 
-    univ = st.text_input('대학명입력', '부산대학교')
+    univ = st.text_input('대학명입력', '')
     st.write('입력대학 : ', univ)
 
     add_radio = st.radio(
@@ -27,7 +27,7 @@ if option != '' :
 if univ != '' :
     df = df[df['학교'].str.count(univ) > 0]
 
-col = ['지역', '학교', '설립구분', '재학생수(A)', '기숙사수용률', '입사경쟁률']
+col = ['지역', '학교', '설립구분', '건물명', '기숙사수용률', '입사경쟁률']
 
 if add_radio == "1인실" :
     col = col + ['1인실실수','1인실식비','1인실기숙사비']
